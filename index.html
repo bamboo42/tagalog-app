@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tagalog Trainer</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- HOME VIEW -->
+  <main id="home-view" class="view">
+    <header class="app-header">
+      <h1>Tagalog Trainer</h1>
+      <p class="tagline">Simple, everyday Tagalog — one phrase at a time.</p>
+    </header>
+
+    <section id="wotd" class="wotd-card" aria-label="Word of the day">
+      <p class="wotd-label">Word of the Day</p>
+      <h2 id="wotd-word" class="wotd-word">…</h2>
+      <p id="wotd-word-english" class="wotd-word-english"></p>
+      <div class="wotd-divider"></div>
+      <p id="wotd-sentence" class="wotd-sentence"></p>
+      <p id="wotd-sentence-english" class="wotd-sentence-english"></p>
+    </section>
+
+    <section aria-label="Categories">
+      <h3 class="section-heading">Practice by category</h3>
+      <div id="tiles" class="tiles">
+        <!-- Tiles are rendered from data/categories.json -->
+      </div>
+    </section>
+  </main>
+
+  <!-- PRACTICE VIEW -->
+  <main id="practice-view" class="view hidden">
+    <header class="practice-header">
+      <button id="back-btn" class="btn btn-ghost" type="button">&larr; Home</button>
+      <h2 id="practice-title" class="practice-title"></h2>
+    </header>
+
+    <section class="practice-card">
+      <p id="practice-tagalog" class="practice-tagalog"></p>
+      <p id="practice-english" class="practice-english hidden"></p>
+
+      <div class="practice-actions">
+        <button id="translate-btn" class="btn btn-primary" type="button">Translate</button>
+        <button id="next-btn" class="btn btn-secondary hidden" type="button">Next sentence</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="error-banner" class="error-banner hidden"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

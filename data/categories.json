@@ -1,0 +1,16 @@
+{
+  "categories": [
+    {
+      "id": "root-verbs",
+      "title": "Common Root Verbs",
+      "description": "Everyday sentences built on the most useful Tagalog verb roots.",
+      "file": "data/sentences-root-verbs.json"
+    },
+    {
+      "id": "adjectives",
+      "title": "Common Adjectives",
+      "description": "Everyday sentences using the most common Tagalog adjectives.",
+      "file": "data/sentences-adjectives.json"
+    }
+  ]
+}

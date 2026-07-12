@@ -1,0 +1,252 @@
+/* ---------- Base ---------- */
+:root {
+  --blue: #0038a8;      /* Philippine flag blue */
+  --red: #ce1126;       /* Philippine flag red */
+  --yellow: #fcd116;    /* Philippine flag yellow */
+  --ink: #1f2430;
+  --ink-soft: #5b6270;
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --radius: 16px;
+  --shadow: 0 4px 16px rgba(31, 36, 48, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+.view {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ---------- Header ---------- */
+.app-header {
+  text-align: center;
+  padding: 16px 0 24px;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  color: var(--blue);
+}
+
+.tagline {
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+/* ---------- Word of the day ---------- */
+.wotd-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-top: 5px solid var(--yellow);
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.wotd-label {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+
+.wotd-word {
+  font-size: 2.2rem;
+  color: var(--blue);
+}
+
+.wotd-word-english {
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
+
+.wotd-divider {
+  height: 1px;
+  background: #e4e7ef;
+  margin: 16px auto;
+  max-width: 240px;
+}
+
+.wotd-sentence {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.wotd-sentence-english {
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+/* ---------- Tiles ---------- */
+.section-heading {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.tile {
+  background: var(--card);
+  border: none;
+  border-left: 5px solid var(--blue);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  font-family: inherit;
+}
+
+.tile:hover,
+.tile:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(31, 36, 48, 0.14);
+}
+
+.tile:nth-child(even) {
+  border-left-color: var(--red);
+}
+
+.tile-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.tile-desc {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+/* ---------- Practice view ---------- */
+.practice-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.practice-title {
+  font-size: 1.3rem;
+  color: var(--blue);
+}
+
+.practice-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px 24px;
+  text-align: center;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.practice-tagalog {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.practice-english {
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+.practice-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: filter 0.12s ease, transform 0.12s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: var(--red);
+  color: #fff;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--blue);
+  padding: 8px 14px;
+}
+
+/* ---------- Error banner ---------- */
+.error-banner {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--red);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  max-width: 90%;
+  text-align: center;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 480px) {
+  .wotd-word {
+    font-size: 1.8rem;
+  }
+
+  .practice-tagalog {
+    font-size: 1.3rem;
+  }
+}
