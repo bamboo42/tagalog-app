@@ -9,6 +9,15 @@
 <body>
   <!-- HOME VIEW -->
   <main id="home-view" class="view">
+    <div class="direction-row">
+      <span id="dir-label-en" class="dir-label">English translations</span>
+      <button id="direction-switch" class="switch" type="button" role="switch"
+              aria-checked="false" aria-label="Translation direction">
+        <span class="switch-knob"></span>
+      </button>
+      <span id="dir-label-tl" class="dir-label">Tagalog translations</span>
+    </div>
+
     <section id="wotd" class="wotd-card" aria-label="Word of the day">
       <p class="wotd-label">Word of the Day</p>
       <h2 id="wotd-word" class="wotd-word">…</h2>
@@ -17,13 +26,6 @@
       <p id="wotd-sentence" class="wotd-sentence"></p>
       <p id="wotd-sentence-english" class="wotd-sentence-english"></p>
     </section>
-
-    <div class="direction-row">
-      <div class="direction-toggle" role="group" aria-label="Translation direction">
-        <button id="dir-tl" class="dir-btn" type="button">Tagalog first</button>
-        <button id="dir-en" class="dir-btn" type="button">English first</button>
-      </div>
-    </div>
 
     <section aria-label="Categories">
       <h3 class="section-heading">Practice by category</h3>

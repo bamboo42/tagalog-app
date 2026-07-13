@@ -13,8 +13,9 @@ const els = {
   practiceEnglish: document.getElementById("practice-english"),
   practiceGroup: document.getElementById("practice-group"),
   jumpBar: document.getElementById("jump-bar"),
-  dirTl: document.getElementById("dir-tl"),
-  dirEn: document.getElementById("dir-en"),
+  dirSwitch: document.getElementById("direction-switch"),
+  dirLabelEn: document.getElementById("dir-label-en"),
+  dirLabelTl: document.getElementById("dir-label-tl"),
   translateBtn: document.getElementById("translate-btn"),
   nextBtn: document.getElementById("next-btn"),
   backBtn: document.getElementById("back-btn"),
@@ -46,8 +47,11 @@ function setDirection(englishFirst) {
     "tagalog-trainer-direction",
     englishFirst ? "en-first" : "tl-first"
   );
-  els.dirTl.classList.toggle("active", !englishFirst);
-  els.dirEn.classList.toggle("active", englishFirst);
+  // Switch right (on) = English shown first, Tagalog revealed as the translation.
+  els.dirSwitch.classList.toggle("on", englishFirst);
+  els.dirSwitch.setAttribute("aria-checked", String(englishFirst));
+  els.dirLabelEn.classList.toggle("active", !englishFirst);
+  els.dirLabelTl.classList.toggle("active", englishFirst);
 }
 
 /* ---------- Helpers ---------- */
@@ -280,8 +284,9 @@ els.nextBtn.addEventListener("click", () => {
   else showNextSentence();
 });
 els.backBtn.addEventListener("click", goHome);
-els.dirTl.addEventListener("click", () => setDirection(false));
-els.dirEn.addEventListener("click", () => setDirection(true));
+els.dirSwitch.addEventListener("click", () => setDirection(!reversed));
+els.dirLabelEn.addEventListener("click", () => setDirection(false));
+els.dirLabelTl.addEventListener("click", () => setDirection(true));
 setDirection(reversed); // reflect the saved choice on load
 
 (async function init() {
