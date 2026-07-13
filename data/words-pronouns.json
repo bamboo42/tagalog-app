@@ -1,0 +1,18 @@
+{
+  "category": "Pronouns",
+  "description": "Tagalog personal and demonstrative pronouns, each with a short example.",
+  "words": [
+    { "tagalog": "ako", "english": "I", "exampleTagalog": "Gutom ako.", "exampleEnglish": "I am hungry." },
+    { "tagalog": "ikaw", "english": "you (singular)", "exampleTagalog": "Ikaw ba si Ana?", "exampleEnglish": "Are you Ana?" },
+    { "tagalog": "ka", "english": "you (after the verb)", "exampleTagalog": "Kumain ka na ba?", "exampleEnglish": "Have you eaten?" },
+    { "tagalog": "siya", "english": "he / she", "exampleTagalog": "Matangkad siya.", "exampleEnglish": "He/she is tall." },
+    { "tagalog": "kami", "english": "we (not including you)", "exampleTagalog": "Aalis kami bukas.", "exampleEnglish": "We are leaving tomorrow." },
+    { "tagalog": "tayo", "english": "we (including you)", "exampleTagalog": "Kain na tayo!", "exampleEnglish": "Let's eat!" },
+    { "tagalog": "kayo", "english": "you (plural / polite)", "exampleTagalog": "Kumusta kayo?", "exampleEnglish": "How are you all?" },
+    { "tagalog": "sila", "english": "they", "exampleTagalog": "Nasaan sila?", "exampleEnglish": "Where are they?" },
+    { "tagalog": "kita", "english": "I ... you", "exampleTagalog": "Mahal kita.", "exampleEnglish": "I love you." },
+    { "tagalog": "ito", "english": "this", "exampleTagalog": "Masarap ito.", "exampleEnglish": "This is delicious." },
+    { "tagalog": "iyan", "english": "that (near you)", "exampleTagalog": "Ano iyan?", "exampleEnglish": "What is that?" },
+    { "tagalog": "iyon", "english": "that (far away)", "exampleTagalog": "Malayo iyon.", "exampleEnglish": "That is far." }
+  ]
+}

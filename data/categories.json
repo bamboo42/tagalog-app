@@ -3,21 +3,21 @@
     {
       "id": "nouns-words",
       "title": "Common Nouns",
-      "description": "The 200 most useful everyday nouns, three at a time.",
+      "description": "The most useful everyday nouns, three at a time.",
       "file": "data/words-nouns.json",
       "mode": "words"
     },
     {
       "id": "root-verbs-words",
       "title": "Common Root Verbs",
-      "description": "200 essential verb roots, three at a time.",
+      "description": "Essential verb roots, three at a time.",
       "file": "data/words-root-verbs.json",
       "mode": "words"
     },
     {
       "id": "adjectives-words",
       "title": "Common Adjectives",
-      "description": "200 everyday adjectives, three at a time.",
+      "description": "Everyday adjectives, three at a time.",
       "file": "data/words-adjectives.json",
       "mode": "words"
     },
@@ -28,6 +28,27 @@
       "file": "data/words-numbers.json",
       "mode": "words",
       "sequential": true
+    },
+    {
+      "id": "pronouns",
+      "title": "Pronouns",
+      "description": "Ako, ikaw, siya — each with a short example.",
+      "file": "data/words-pronouns.json",
+      "mode": "words"
+    },
+    {
+      "id": "possessive-pronouns",
+      "title": "Possessive Pronouns",
+      "description": "Ko, mo, niya and akin, iyo, kanya — each with a short example.",
+      "file": "data/words-possessive-pronouns.json",
+      "mode": "words"
+    },
+    {
+      "id": "linkers",
+      "title": "Linking Words",
+      "description": "The words that join ideas together, with example sentences.",
+      "file": "data/words-linkers.json",
+      "mode": "words"
     },
     {
       "id": "root-verbs",

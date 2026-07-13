@@ -180,6 +180,19 @@ function showNextWordGroup() {
     english.textContent = word.english;
 
     row.append(tagalog, english);
+
+    if (word.exampleTagalog) {
+      const example = document.createElement("span");
+      example.className = "word-example";
+      example.textContent = word.exampleTagalog;
+
+      const exampleEnglish = document.createElement("span");
+      exampleEnglish.className = "word-example-english veiled";
+      exampleEnglish.textContent = word.exampleEnglish || "";
+
+      row.append(example, exampleEnglish);
+    }
+
     els.practiceGroup.appendChild(row);
   });
 
@@ -193,7 +206,7 @@ function showNextWordGroup() {
 function revealTranslation() {
   if (currentMode === "words") {
     els.practiceGroup
-      .querySelectorAll(".word-english")
+      .querySelectorAll(".veiled")
       .forEach((el) => el.classList.remove("veiled"));
   } else {
     els.practiceEnglish.classList.remove("hidden");

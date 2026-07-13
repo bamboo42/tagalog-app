@@ -1,0 +1,32 @@
+{
+  "category": "Linking Words",
+  "description": "The words that join ideas together, each with a short example sentence.",
+  "words": [
+    { "tagalog": "at", "english": "and", "exampleTagalog": "Kumain ako at natulog.", "exampleEnglish": "I ate and slept." },
+    { "tagalog": "o", "english": "or", "exampleTagalog": "Kape o tsaa?", "exampleEnglish": "Coffee or tea?" },
+    { "tagalog": "pero", "english": "but", "exampleTagalog": "Gusto ko, pero pagod ako.", "exampleEnglish": "I want to, but I am tired." },
+    { "tagalog": "ngunit", "english": "but (formal)", "exampleTagalog": "Mayaman siya, ngunit malungkot.", "exampleEnglish": "He/she is rich, but sad." },
+    { "tagalog": "kasi", "english": "because (casual)", "exampleTagalog": "Umuwi ako kasi umuulan.", "exampleEnglish": "I went home because it was raining." },
+    { "tagalog": "dahil", "english": "because", "exampleTagalog": "Nahuli ako dahil sa trapiko.", "exampleEnglish": "I was late because of the traffic." },
+    { "tagalog": "sapagkat", "english": "because (formal)", "exampleTagalog": "Nag-aral siya sapagkat may pagsusulit.", "exampleEnglish": "He/she studied because there is a test." },
+    { "tagalog": "kaya", "english": "so / that is why", "exampleTagalog": "Umulan, kaya nabasa ako.", "exampleEnglish": "It rained, so I got wet." },
+    { "tagalog": "kung", "english": "if", "exampleTagalog": "Tawagan mo ako kung libre ka.", "exampleEnglish": "Call me if you are free." },
+    { "tagalog": "kapag", "english": "when / whenever", "exampleTagalog": "Kapag gutom ako, kumakain ako.", "exampleEnglish": "When I am hungry, I eat." },
+    { "tagalog": "noong", "english": "when (in the past)", "exampleTagalog": "Noong bata ako, mahiyain ako.", "exampleEnglish": "When I was young, I was shy." },
+    { "tagalog": "nang", "english": "when (a past event)", "exampleTagalog": "Nang dumating ako, wala na siya.", "exampleEnglish": "When I arrived, he/she was gone." },
+    { "tagalog": "habang", "english": "while", "exampleTagalog": "Kumakanta siya habang naliligo.", "exampleEnglish": "He/she sings while bathing." },
+    { "tagalog": "bago", "english": "before", "exampleTagalog": "Maghugas ka bago kumain.", "exampleEnglish": "Wash up before eating." },
+    { "tagalog": "pagkatapos", "english": "after / afterwards", "exampleTagalog": "Pagkatapos kumain, umalis kami.", "exampleEnglish": "After eating, we left." },
+    { "tagalog": "tapos", "english": "then (casual)", "exampleTagalog": "Naligo ako, tapos nagbihis.", "exampleEnglish": "I bathed, then got dressed." },
+    { "tagalog": "saka", "english": "and then", "exampleTagalog": "Kumain kami, saka umalis.", "exampleEnglish": "We ate, and then left." },
+    { "tagalog": "at saka", "english": "and also", "exampleTagalog": "Bumili ako ng kape at saka tinapay.", "exampleEnglish": "I bought coffee and also bread." },
+    { "tagalog": "o kaya", "english": "or else / or maybe", "exampleTagalog": "Manood tayo, o kaya matulog.", "exampleEnglish": "Let's watch, or maybe sleep." },
+    { "tagalog": "para", "english": "so that / for", "exampleTagalog": "Mag-aral ka para pumasa.", "exampleEnglish": "Study so that you pass." },
+    { "tagalog": "upang", "english": "so that (formal)", "exampleTagalog": "Nagtitipid ako upang makaipon.", "exampleEnglish": "I save money so that I can build savings." },
+    { "tagalog": "kahit", "english": "even though / even if", "exampleTagalog": "Kahit pagod, pumasok siya.", "exampleEnglish": "Even though tired, he/she went to work." },
+    { "tagalog": "kaysa", "english": "than", "exampleTagalog": "Mas mataas si Ana kaysa kay Ben.", "exampleEnglish": "Ana is taller than Ben." },
+    { "tagalog": "hanggang", "english": "until", "exampleTagalog": "Maghintay ka hanggang alas-singko.", "exampleEnglish": "Wait until five o'clock." },
+    { "tagalog": "tuwing", "english": "every time / every", "exampleTagalog": "Tuwing Linggo, nagsisimba kami.", "exampleEnglish": "Every Sunday, we go to church." },
+    { "tagalog": "na / -ng", "english": "linker (joins a description to a noun)", "exampleTagalog": "masarap na pagkain, magandang bahay", "exampleEnglish": "delicious food, beautiful house" }
+  ]
+}

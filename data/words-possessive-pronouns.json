@@ -1,0 +1,20 @@
+{
+  "category": "Possessive Pronouns",
+  "description": "Possessives that follow the noun (ko, mo, niya) and ones that stand alone or come before it (akin, iyo, kanya).",
+  "words": [
+    { "tagalog": "ko", "english": "my", "exampleTagalog": "bahay ko", "exampleEnglish": "my house" },
+    { "tagalog": "mo", "english": "your (singular)", "exampleTagalog": "pangalan mo", "exampleEnglish": "your name" },
+    { "tagalog": "niya", "english": "his / her", "exampleTagalog": "kotse niya", "exampleEnglish": "his/her car" },
+    { "tagalog": "namin", "english": "our (not including you)", "exampleTagalog": "bahay namin", "exampleEnglish": "our house" },
+    { "tagalog": "natin", "english": "our (including you)", "exampleTagalog": "bayan natin", "exampleEnglish": "our town" },
+    { "tagalog": "ninyo", "english": "your (plural / polite)", "exampleTagalog": "guro ninyo", "exampleEnglish": "your teacher" },
+    { "tagalog": "nila", "english": "their", "exampleTagalog": "aso nila", "exampleEnglish": "their dog" },
+    { "tagalog": "akin", "english": "mine / my", "exampleTagalog": "Akin ito.", "exampleEnglish": "This is mine." },
+    { "tagalog": "iyo", "english": "yours (singular)", "exampleTagalog": "Iyo ba ito?", "exampleEnglish": "Is this yours?" },
+    { "tagalog": "kanya", "english": "his / hers", "exampleTagalog": "Kanya iyan.", "exampleEnglish": "That is his/hers." },
+    { "tagalog": "amin", "english": "ours (not including you)", "exampleTagalog": "Amin ito.", "exampleEnglish": "This is ours." },
+    { "tagalog": "atin", "english": "ours (including you)", "exampleTagalog": "Atin ang panalo.", "exampleEnglish": "The win is ours." },
+    { "tagalog": "inyo", "english": "yours (plural / polite)", "exampleTagalog": "Inyo na ito.", "exampleEnglish": "This is yours now." },
+    { "tagalog": "kanila", "english": "theirs / their", "exampleTagalog": "Kanila ang kotse.", "exampleEnglish": "The car is theirs." }
+  ]
+}
