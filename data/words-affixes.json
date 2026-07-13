@@ -1,0 +1,28 @@
+{
+  "category": "Prefixes & Suffixes",
+  "description": "How prefixes and suffixes change the meaning of nouns and adjectives.",
+  "words": [
+    { "tagalog": "ma-", "english": "having the quality of (makes adjectives)", "exampleTagalog": "ganda → maganda", "exampleEnglish": "beauty → beautiful" },
+    { "tagalog": "ma- + -in", "english": "inclined to / having a soft-hearted trait", "exampleTagalog": "awa → maawain", "exampleEnglish": "pity → compassionate" },
+    { "tagalog": "-in (prone to)", "english": "prone to something, often ailments", "exampleTagalog": "sakit → sakitin", "exampleEnglish": "sickness → sickly" },
+    { "tagalog": "pala-", "english": "habitually does something", "exampleTagalog": "biro → palabiro", "exampleEnglish": "joke → fond of joking" },
+    { "tagalog": "mapag-", "english": "characterized by doing something", "exampleTagalog": "bigay → mapagbigay", "exampleEnglish": "give → generous" },
+    { "tagalog": "maka-", "english": "in favor of / pro-", "exampleTagalog": "bayan → makabayan", "exampleEnglish": "nation → patriotic" },
+    { "tagalog": "nakaka-", "english": "causes the feeling of", "exampleTagalog": "takot → nakakatakot", "exampleEnglish": "fear → scary" },
+    { "tagalog": "kasing-", "english": "as ... as (equal comparison)", "exampleTagalog": "ganda → kasingganda ni Ana", "exampleEnglish": "beauty → as beautiful as Ana" },
+    { "tagalog": "napaka-", "english": "very (intensifier)", "exampleTagalog": "sarap → napakasarap", "exampleEnglish": "delicious → very delicious" },
+    { "tagalog": "pinaka-", "english": "the most (superlative)", "exampleTagalog": "mataas → pinakamataas", "exampleEnglish": "tall → the tallest" },
+    { "tagalog": "-an / -han (place)", "english": "place where something happens", "exampleTagalog": "kain → kainan", "exampleEnglish": "eat → eating place" },
+    { "tagalog": "ka- + -an", "english": "abstract idea or quality", "exampleTagalog": "maganda → kagandahan", "exampleEnglish": "beautiful → beauty" },
+    { "tagalog": "ka-", "english": "companion / fellow", "exampleTagalog": "klase → kaklase", "exampleEnglish": "class → classmate" },
+    { "tagalog": "mag-", "english": "a pair related to each other", "exampleTagalog": "ina → mag-ina", "exampleEnglish": "mother → mother and child" },
+    { "tagalog": "magka-", "english": "two who share a bond or state", "exampleTagalog": "ibig → magkaibigan", "exampleEnglish": "love → friends with each other" },
+    { "tagalog": "taga-", "english": "person from a place / the one who does", "exampleTagalog": "Maynila → taga-Maynila", "exampleEnglish": "Manila → from Manila" },
+    { "tagalog": "pag-", "english": "the act of doing (makes nouns from verbs)", "exampleTagalog": "aral → pag-aaral", "exampleEnglish": "study → studying" },
+    { "tagalog": "pang- (pam-, pan-)", "english": "tool or thing used for", "exampleTagalog": "punas → pamunas", "exampleEnglish": "wipe → wiping cloth" },
+    { "tagalog": "-in (thing to be)", "english": "thing to be used or consumed", "exampleTagalog": "inom → inumin", "exampleEnglish": "drink → a drink / beverage" },
+    { "tagalog": "-ero / -era", "english": "person's occupation (from Spanish)", "exampleTagalog": "tinda → tindero / tindera", "exampleEnglish": "sell → vendor" },
+    { "tagalog": "sang- / san-", "english": "one whole unit of", "exampleTagalog": "linggo → sanlinggo", "exampleEnglish": "week → one week" },
+    { "tagalog": "pagka-", "english": "the nature or essence of", "exampleTagalog": "tao → pagkatao", "exampleEnglish": "person → character / humanity" }
+  ]
+}

@@ -27,7 +27,8 @@
       "description": "Count from isa to sandaan, three at a time, in order.",
       "file": "data/words-numbers.json",
       "mode": "words",
-      "sequential": true
+      "sequential": true,
+      "jumpBar": true
     },
     {
       "id": "pronouns",
@@ -49,6 +50,14 @@
       "description": "The words that join ideas together, with example sentences.",
       "file": "data/words-linkers.json",
       "mode": "words"
+    },
+    {
+      "id": "affixes",
+      "title": "Prefixes & Suffixes",
+      "description": "How word beginnings and endings change meaning, with examples.",
+      "file": "data/words-affixes.json",
+      "mode": "words",
+      "sequential": true
     },
     {
       "id": "root-verbs",

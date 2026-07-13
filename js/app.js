@@ -12,6 +12,7 @@ const els = {
   practiceTagalog: document.getElementById("practice-tagalog"),
   practiceEnglish: document.getElementById("practice-english"),
   practiceGroup: document.getElementById("practice-group"),
+  jumpBar: document.getElementById("jump-bar"),
   translateBtn: document.getElementById("translate-btn"),
   nextBtn: document.getElementById("next-btn"),
   backBtn: document.getElementById("back-btn"),
@@ -32,6 +33,7 @@ let currentWords = [];
 let wordOrder = []; // indices into currentWords, shuffled or sequential
 let wordPos = 0;
 let sequentialWords = false;
+let showJumpBar = false;
 
 /* ---------- Helpers ---------- */
 
@@ -128,12 +130,15 @@ async function openCategory(category) {
   if (currentMode === "words") {
     currentWords = data.words;
     sequentialWords = !!category.sequential;
+    showJumpBar = !!category.jumpBar;
     wordOrder = currentWords.map((_, i) => i);
     if (!sequentialWords) shuffle(wordOrder);
     wordPos = 0;
     els.nextBtn.textContent = "Next words";
+    buildJumpBar();
     showNextWordGroup();
   } else {
+    els.jumpBar.classList.add("hidden");
     currentSentences = data.sentences;
     currentIndex = -1;
     els.nextBtn.textContent = "Next sentence";
@@ -152,6 +157,31 @@ function showNextSentence() {
   els.practiceEnglish.classList.add("hidden");
   els.translateBtn.classList.remove("hidden");
   els.nextBtn.classList.add("hidden");
+}
+
+// Quick-jump buttons (1, 10, 20 ... 90) for categories that opt in (Numbers).
+function buildJumpBar() {
+  els.jumpBar.innerHTML = "";
+  if (!showJumpBar) {
+    els.jumpBar.classList.add("hidden");
+    return;
+  }
+
+  const targets = [1, 10, 20, 30, 40, 50, 60, 70, 80, 90].filter(
+    (n) => n <= currentWords.length
+  );
+  targets.forEach((n) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "jump-btn";
+    btn.textContent = n;
+    btn.addEventListener("click", () => {
+      wordPos = n - 1;
+      showNextWordGroup();
+    });
+    els.jumpBar.appendChild(btn);
+  });
+  els.jumpBar.classList.remove("hidden");
 }
 
 function showNextWordGroup() {
