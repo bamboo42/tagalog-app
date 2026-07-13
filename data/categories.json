@@ -1,14 +1,43 @@
 {
   "categories": [
     {
-      "id": "root-verbs",
+      "id": "nouns-words",
+      "title": "Common Nouns",
+      "description": "The 200 most useful everyday nouns, three at a time.",
+      "file": "data/words-nouns.json",
+      "mode": "words"
+    },
+    {
+      "id": "root-verbs-words",
       "title": "Common Root Verbs",
+      "description": "200 essential verb roots, three at a time.",
+      "file": "data/words-root-verbs.json",
+      "mode": "words"
+    },
+    {
+      "id": "adjectives-words",
+      "title": "Common Adjectives",
+      "description": "200 everyday adjectives, three at a time.",
+      "file": "data/words-adjectives.json",
+      "mode": "words"
+    },
+    {
+      "id": "numbers",
+      "title": "Numbers 1–100",
+      "description": "Count from isa to sandaan, three at a time, in order.",
+      "file": "data/words-numbers.json",
+      "mode": "words",
+      "sequential": true
+    },
+    {
+      "id": "root-verbs",
+      "title": "Root Verb Sentences",
       "description": "Everyday sentences built on the most useful Tagalog verb roots.",
       "file": "data/sentences-root-verbs.json"
     },
     {
       "id": "adjectives",
-      "title": "Common Adjectives",
+      "title": "Adjective Sentences",
       "description": "Everyday sentences using the most common Tagalog adjectives.",
       "file": "data/sentences-adjectives.json"
     }

@@ -11,18 +11,27 @@ const els = {
   practiceTitle: document.getElementById("practice-title"),
   practiceTagalog: document.getElementById("practice-tagalog"),
   practiceEnglish: document.getElementById("practice-english"),
+  practiceGroup: document.getElementById("practice-group"),
   translateBtn: document.getElementById("translate-btn"),
   nextBtn: document.getElementById("next-btn"),
   backBtn: document.getElementById("back-btn"),
   errorBanner: document.getElementById("error-banner"),
 };
 
-// Cache of loaded sentence files, keyed by file path.
+// Cache of loaded data files, keyed by file path.
 const sentenceCache = {};
 
 // Practice session state.
+let currentMode = "sentences"; // "sentences" | "words"
 let currentSentences = [];
 let currentIndex = -1;
+
+// Word-group state ("words" mode): items shown GROUP_SIZE at a time.
+const GROUP_SIZE = 3;
+let currentWords = [];
+let wordOrder = []; // indices into currentWords, shuffled or sequential
+let wordPos = 0;
+let sequentialWords = false;
 
 /* ---------- Helpers ---------- */
 
@@ -45,6 +54,15 @@ function randomIndex(length, avoid) {
     idx = Math.floor(Math.random() * length);
   } while (idx === avoid);
   return idx;
+}
+
+// Fisher-Yates, in place.
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
 
 /* ---------- Word of the day ---------- */
@@ -99,21 +117,36 @@ async function openCategory(category) {
     return;
   }
 
-  currentSentences = sentenceCache[category.file].sentences;
-  currentIndex = -1;
+  const data = sentenceCache[category.file];
+  currentMode = category.mode === "words" ? "words" : "sentences";
 
   els.practiceTitle.textContent = category.title;
   els.homeView.classList.add("hidden");
   els.practiceView.classList.remove("hidden");
   window.scrollTo(0, 0);
 
-  showNextSentence();
+  if (currentMode === "words") {
+    currentWords = data.words;
+    sequentialWords = !!category.sequential;
+    wordOrder = currentWords.map((_, i) => i);
+    if (!sequentialWords) shuffle(wordOrder);
+    wordPos = 0;
+    els.nextBtn.textContent = "Next words";
+    showNextWordGroup();
+  } else {
+    currentSentences = data.sentences;
+    currentIndex = -1;
+    els.nextBtn.textContent = "Next sentence";
+    showNextSentence();
+  }
 }
 
 function showNextSentence() {
   currentIndex = randomIndex(currentSentences.length, currentIndex);
   const entry = currentSentences[currentIndex];
 
+  els.practiceGroup.classList.add("hidden");
+  els.practiceTagalog.classList.remove("hidden");
   els.practiceTagalog.textContent = entry.tagalog;
   els.practiceEnglish.textContent = entry.english;
   els.practiceEnglish.classList.add("hidden");
@@ -121,8 +154,50 @@ function showNextSentence() {
   els.nextBtn.classList.add("hidden");
 }
 
+function showNextWordGroup() {
+  // End of a pass: sequential lists restart from 1; shuffled lists reshuffle.
+  if (wordPos >= wordOrder.length) {
+    wordPos = 0;
+    if (!sequentialWords) shuffle(wordOrder);
+  }
+
+  const group = wordOrder
+    .slice(wordPos, wordPos + GROUP_SIZE)
+    .map((i) => currentWords[i]);
+  wordPos += group.length;
+
+  els.practiceGroup.innerHTML = "";
+  group.forEach((word) => {
+    const row = document.createElement("div");
+    row.className = "word-row";
+
+    const tagalog = document.createElement("span");
+    tagalog.className = "word-tagalog";
+    tagalog.textContent = word.tagalog;
+
+    const english = document.createElement("span");
+    english.className = "word-english veiled";
+    english.textContent = word.english;
+
+    row.append(tagalog, english);
+    els.practiceGroup.appendChild(row);
+  });
+
+  els.practiceGroup.classList.remove("hidden");
+  els.practiceTagalog.classList.add("hidden");
+  els.practiceEnglish.classList.add("hidden");
+  els.translateBtn.classList.remove("hidden");
+  els.nextBtn.classList.add("hidden");
+}
+
 function revealTranslation() {
-  els.practiceEnglish.classList.remove("hidden");
+  if (currentMode === "words") {
+    els.practiceGroup
+      .querySelectorAll(".word-english")
+      .forEach((el) => el.classList.remove("veiled"));
+  } else {
+    els.practiceEnglish.classList.remove("hidden");
+  }
   els.translateBtn.classList.add("hidden");
   els.nextBtn.classList.remove("hidden");
 }
@@ -136,7 +211,10 @@ function goHome() {
 /* ---------- Init ---------- */
 
 els.translateBtn.addEventListener("click", revealTranslation);
-els.nextBtn.addEventListener("click", showNextSentence);
+els.nextBtn.addEventListener("click", () => {
+  if (currentMode === "words") showNextWordGroup();
+  else showNextSentence();
+});
 els.backBtn.addEventListener("click", goHome);
 
 (async function init() {
