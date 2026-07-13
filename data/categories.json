@@ -3,21 +3,21 @@
     {
       "id": "nouns-words",
       "title": "Common Nouns",
-      "description": "The most useful everyday nouns, three at a time.",
+      "description": "The most useful everyday nouns, with a short example for each.",
       "file": "data/words-nouns.json",
       "mode": "words"
     },
     {
       "id": "root-verbs-words",
       "title": "Common Root Verbs",
-      "description": "Essential verb roots, three at a time.",
+      "description": "Essential verb roots, with a short example for each.",
       "file": "data/words-root-verbs.json",
       "mode": "words"
     },
     {
       "id": "adjectives-words",
       "title": "Common Adjectives",
-      "description": "Everyday adjectives, three at a time.",
+      "description": "Everyday adjectives, with a short example for each.",
       "file": "data/words-adjectives.json",
       "mode": "words"
     },
@@ -28,7 +28,8 @@
       "file": "data/words-numbers.json",
       "mode": "words",
       "sequential": true,
-      "jumpBar": true
+      "jumpBar": true,
+      "groupSize": 3
     },
     {
       "id": "pronouns",

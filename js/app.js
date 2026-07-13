@@ -13,6 +13,8 @@ const els = {
   practiceEnglish: document.getElementById("practice-english"),
   practiceGroup: document.getElementById("practice-group"),
   jumpBar: document.getElementById("jump-bar"),
+  dirTl: document.getElementById("dir-tl"),
+  dirEn: document.getElementById("dir-en"),
   translateBtn: document.getElementById("translate-btn"),
   nextBtn: document.getElementById("next-btn"),
   backBtn: document.getElementById("back-btn"),
@@ -27,13 +29,26 @@ let currentMode = "sentences"; // "sentences" | "words"
 let currentSentences = [];
 let currentIndex = -1;
 
-// Word-group state ("words" mode): items shown GROUP_SIZE at a time.
-const GROUP_SIZE = 3;
+// Word-group state ("words" mode): items shown groupSize at a time.
+let groupSize = 1;
 let currentWords = [];
 let wordOrder = []; // indices into currentWords, shuffled or sequential
 let wordPos = 0;
 let sequentialWords = false;
 let showJumpBar = false;
+
+// Translation direction: false = Tagalog shown first, true = English shown first.
+let reversed = localStorage.getItem("tagalog-trainer-direction") === "en-first";
+
+function setDirection(englishFirst) {
+  reversed = englishFirst;
+  localStorage.setItem(
+    "tagalog-trainer-direction",
+    englishFirst ? "en-first" : "tl-first"
+  );
+  els.dirTl.classList.toggle("active", !englishFirst);
+  els.dirEn.classList.toggle("active", englishFirst);
+}
 
 /* ---------- Helpers ---------- */
 
@@ -131,10 +146,11 @@ async function openCategory(category) {
     currentWords = data.words;
     sequentialWords = !!category.sequential;
     showJumpBar = !!category.jumpBar;
+    groupSize = category.groupSize || 1;
     wordOrder = currentWords.map((_, i) => i);
     if (!sequentialWords) shuffle(wordOrder);
     wordPos = 0;
-    els.nextBtn.textContent = "Next words";
+    els.nextBtn.textContent = groupSize > 1 ? "Next words" : "Next word";
     buildJumpBar();
     showNextWordGroup();
   } else {
@@ -152,8 +168,9 @@ function showNextSentence() {
 
   els.practiceGroup.classList.add("hidden");
   els.practiceTagalog.classList.remove("hidden");
-  els.practiceTagalog.textContent = entry.tagalog;
-  els.practiceEnglish.textContent = entry.english;
+  // "Tagalog" element holds the prompt, "English" the answer — swapped when reversed.
+  els.practiceTagalog.textContent = reversed ? entry.english : entry.tagalog;
+  els.practiceEnglish.textContent = reversed ? entry.tagalog : entry.english;
   els.practiceEnglish.classList.add("hidden");
   els.translateBtn.classList.remove("hidden");
   els.nextBtn.classList.add("hidden");
@@ -192,7 +209,7 @@ function showNextWordGroup() {
   }
 
   const group = wordOrder
-    .slice(wordPos, wordPos + GROUP_SIZE)
+    .slice(wordPos, wordPos + groupSize)
     .map((i) => currentWords[i]);
   wordPos += group.length;
 
@@ -201,26 +218,30 @@ function showNextWordGroup() {
     const row = document.createElement("div");
     row.className = "word-row";
 
-    const tagalog = document.createElement("span");
-    tagalog.className = "word-tagalog";
-    tagalog.textContent = word.tagalog;
+    const prompt = document.createElement("span");
+    prompt.className = "word-tagalog";
+    prompt.textContent = reversed ? word.english : word.tagalog;
 
-    const english = document.createElement("span");
-    english.className = "word-english veiled";
-    english.textContent = word.english;
+    const answer = document.createElement("span");
+    answer.className = "word-english veiled";
+    answer.textContent = reversed ? word.tagalog : word.english;
 
-    row.append(tagalog, english);
+    row.append(prompt, answer);
 
     if (word.exampleTagalog) {
       const example = document.createElement("span");
       example.className = "word-example";
-      example.textContent = word.exampleTagalog;
+      example.textContent = reversed
+        ? word.exampleEnglish || ""
+        : word.exampleTagalog;
 
-      const exampleEnglish = document.createElement("span");
-      exampleEnglish.className = "word-example-english veiled";
-      exampleEnglish.textContent = word.exampleEnglish || "";
+      const exampleAnswer = document.createElement("span");
+      exampleAnswer.className = "word-example-english veiled";
+      exampleAnswer.textContent = reversed
+        ? word.exampleTagalog
+        : word.exampleEnglish || "";
 
-      row.append(example, exampleEnglish);
+      row.append(example, exampleAnswer);
     }
 
     els.practiceGroup.appendChild(row);
@@ -259,6 +280,9 @@ els.nextBtn.addEventListener("click", () => {
   else showNextSentence();
 });
 els.backBtn.addEventListener("click", goHome);
+els.dirTl.addEventListener("click", () => setDirection(false));
+els.dirEn.addEventListener("click", () => setDirection(true));
+setDirection(reversed); // reflect the saved choice on load
 
 (async function init() {
   try {
