@@ -9,13 +9,22 @@
 <body>
   <!-- HOME VIEW -->
   <main id="home-view" class="view">
-    <div class="direction-row">
-      <span id="dir-label-en" class="dir-label">English translations</span>
-      <button id="direction-switch" class="switch" type="button" role="switch"
-              aria-checked="false" aria-label="Translation direction">
-        <span class="switch-knob"></span>
-      </button>
-      <span id="dir-label-tl" class="dir-label">Tagalog translations</span>
+    <div class="top-controls">
+      <div class="direction-row">
+        <span id="dir-label-en" class="dir-label">English translations</span>
+        <button id="direction-switch" class="switch" type="button" role="switch"
+                aria-checked="false" aria-label="Translation direction">
+          <span class="switch-knob"></span>
+        </button>
+        <span id="dir-label-tl" class="dir-label">Tagalog translations</span>
+      </div>
+      <div class="theme-row">
+        <span id="theme-label" class="dir-label">Dark mode</span>
+        <button id="theme-switch" class="switch switch-onoff" type="button" role="switch"
+                aria-checked="false" aria-label="Dark mode">
+          <span class="switch-knob"></span>
+        </button>
+      </div>
     </div>
 
     <section id="wotd" class="wotd-card" aria-label="Word of the day">

@@ -16,6 +16,8 @@ const els = {
   dirSwitch: document.getElementById("direction-switch"),
   dirLabelEn: document.getElementById("dir-label-en"),
   dirLabelTl: document.getElementById("dir-label-tl"),
+  themeSwitch: document.getElementById("theme-switch"),
+  themeLabel: document.getElementById("theme-label"),
   translateBtn: document.getElementById("translate-btn"),
   nextBtn: document.getElementById("next-btn"),
   backBtn: document.getElementById("back-btn"),
@@ -40,6 +42,21 @@ let showJumpBar = false;
 
 // Translation direction: false = Tagalog shown first, true = English shown first.
 let reversed = localStorage.getItem("tagalog-trainer-direction") === "en-first";
+
+// Theme: saved choice wins; otherwise follow the system preference.
+const savedTheme = localStorage.getItem("tagalog-trainer-theme");
+let darkMode = savedTheme
+  ? savedTheme === "dark"
+  : window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+function setTheme(dark) {
+  darkMode = dark;
+  localStorage.setItem("tagalog-trainer-theme", dark ? "dark" : "light");
+  document.body.classList.toggle("dark", dark);
+  els.themeSwitch.classList.toggle("on", dark);
+  els.themeSwitch.setAttribute("aria-checked", String(dark));
+  els.themeLabel.classList.toggle("active", dark);
+}
 
 function setDirection(englishFirst) {
   reversed = englishFirst;
@@ -288,6 +305,10 @@ els.dirSwitch.addEventListener("click", () => setDirection(!reversed));
 els.dirLabelEn.addEventListener("click", () => setDirection(false));
 els.dirLabelTl.addEventListener("click", () => setDirection(true));
 setDirection(reversed); // reflect the saved choice on load
+
+els.themeSwitch.addEventListener("click", () => setTheme(!darkMode));
+els.themeLabel.addEventListener("click", () => setTheme(!darkMode));
+setTheme(darkMode); // reflect the saved/system choice on load
 
 (async function init() {
   try {
